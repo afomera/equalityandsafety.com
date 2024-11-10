@@ -59,6 +59,10 @@
       border: black 2px solid;
     }
 
+    .hidden {
+      display: none;
+    }
+
     h2 {
       text-transform: uppercase;
       font-size: 1.1em;
@@ -72,9 +76,32 @@
     a:hover {
       /* background-color: #f7a8b8; */
       background-image: linear-gradient(to right, rgb(85, 205, 252), rgb(179, 157, 233), rgb(247, 168, 184), rgb(246, 216, 221), rgb(255, 255, 255) 45%, rgb(255, 255, 255), rgb(255, 255, 255) 55%, rgb(246, 216, 221), rgb(247, 168, 184), rgb(179, 157, 233), rgb(85, 205, 252));
-      color: #CCC;
+      color: #666;
       padding: 0 4px;
       text-decoration: underline;
+    }
+
+    nav {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    nav a::after {
+      content: "•";
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    nav a:last-child::after {
+      content: "";
+    }
+
+    .nav-link {
+      color: var(--trans-blue);
+      text-decoration: none;
+      background-image: none !important;
     }
 
     .wrapper {
@@ -121,7 +148,7 @@
 
     .separator hr {
       border: none;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #666;
     }
 
     .separator svg {
@@ -136,45 +163,12 @@
       width: 16px;
       padding: 4px;
       fill: currentColor;
-      color: #eee;
+      color: #666;
     }
 
     @media only screen and (min-width: 767px) {
       .wrapper {
         width: 600px;
-      }
-    }
-
-    .event {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-
-    .event .date {
-      flex-basis: 100%;
-      margin-right: 10px;
-    }
-
-    .event .description {
-      flex-basis: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .event {
-        flex-wrap: nowrap;
-      }
-
-      .event .date {
-        flex-basis: auto;
-      }
-
-      .event .date::after {
-        content: " — ";
-      }
-
-      .event .description {
-        flex-basis: auto;
       }
     }
     </style>
@@ -191,6 +185,12 @@
         <span>And</span>
         <span>Safety</span>
       </h1>
+
+      <nav class="hidden">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#issues">Issues</a>
+        <a class="nav-link" href="#advocacy">Advocacy</a>
+      </nav>
 
       <div class="separator">
         <hr>
